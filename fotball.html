@@ -3,17 +3,16 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Live Sports Dashboard</title>
+    <title>Fotball</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <header class="topp">
       <div class="topp-innhold">
-        <p class="overtekst">Skoleprosjekt</p>
-        <h1>Live Sports Dashboard</h1>
+        <p class="overtekst">Fotball</p>
+        <h1>Kun fotball</h1>
         <p class="ingress">
-          Følg kamper og løp i sanntid. Velg sport, søk, og filtrer dagens
-          arrangementer med realistiske placeholder-data.
+          Søk og filtrer fotballkamper. Viser dagens kamper og andre kamper.
         </p>
         <nav class="nav">
           <a href="index.html">Hjem</a>
@@ -27,19 +26,11 @@
     <main class="beholder">
       <section class="kontroller">
         <div class="kontroll">
-          <label for="sportVelger">Velg sport</label>
-          <select id="sportVelger">
-            <option value="fotball">Fotball</option>
-            <option value="f1">Formula 1</option>
-          </select>
-        </div>
-
-        <div class="kontroll">
           <label for="sokInput">Søk</label>
           <input
             id="sokInput"
             type="text"
-            placeholder="Lag, fører eller løp..."
+            placeholder="Lag eller kamp..."
             autocomplete="off"
           />
           <small id="sokHjelp" class="tips">
@@ -63,7 +54,7 @@
 
       <section class="seksjon">
         <div class="seksjon-topp">
-          <h2 id="andreTittel">Tidligere og kommende</h2>
+          <h2 id="andreTittel">Tidligere og kommende kamper</h2>
           <span class="merking" id="andreAntall">0</span>
         </div>
         <div id="andreRutenett" class="rutenett"></div>
@@ -74,6 +65,6 @@
       <p>Frontend-demo uten backend. Dataene er realistiske placeholders.</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script-fotball.js"></script>
   </body>
 </html>

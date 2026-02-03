@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="no">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Søk</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topp">
+      <div class="topp-innhold">
+        <p class="overtekst">Søk</p>
+        <h1>Søk i alle sporter</h1>
+        <p class="ingress">
+          Søk etter lag, fører, team eller løp. Resultatene vises under.
+        </p>
+        <nav class="nav">
+          <a href="index.html">Hjem</a>
+          <a href="fotball.html">Fotball</a>
+          <a href="f1.html">Formula 1</a>
+          <a href="sok.html">Søk</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="beholder">
+      <section class="kontroller">
+        <div class="kontroll">
+          <!-- Søkefelt-design -->
+          <div class="group">
+            <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
+              <g>
+                <path
+                  d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"
+                ></path>
+              </g>
+            </svg>
+            <input
+              id="sokInput"
+              type="search"
+              class="input"
+              placeholder=""
+              autocomplete="off"
+            />
+          </div>
+          <small id="sokHjelp" class="tips">
+            Søk må være minst 2 tegn.
+          </small>
+        </div>
+      </section>
+
+      <section class="seksjon">
+        <div class="seksjon-topp">
+          <h2>Fotball</h2>
+          <span class="merking" id="fotballAntall">0</span>
+        </div>
+        <div id="fotballRutenett" class="rutenett"></div>
+      </section>
+
+      <section class="seksjon">
+        <div class="seksjon-topp">
+          <h2>Formula 1</h2>
+          <span class="merking" id="f1Antall">0</span>
+        </div>
+        <div id="f1Rutenett" class="rutenett"></div>
+      </section>
+    </main>
+
+    <footer class="bunn">
+      <p>Frontend-demo uten backend. Dataene er realistiske placeholders.</p>
+    </footer>
+
+    <script src="script-sok.js"></script>
+  </body>
+</html>

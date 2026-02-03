@@ -1,253 +1,237 @@
-@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Source+Serif+4:wght@400;600&display=swap");
-
-:root {
-  --bg: #0f172a;
-  --bg-soft: #111d36;
-  --card: #121c2f;
-  --accent: #ffb703;
-  --accent-2: #22d3ee;
-  --text: #f8fafc;
-  --muted: #cbd5f5;
-  --success: #34d399;
-  --danger: #fb7185;
-  --warning: #f97316;
-  --shadow: rgba(15, 23, 42, 0.6);
-}
-
 * {
   box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  font-family: "Space Grotesk", system-ui, sans-serif;
-  background: radial-gradient(circle at top, #1b2b52, #0b1020 70%);
-  color: var(--text);
+  font-family: Arial, sans-serif;
+  background-color: white;
+  color: #111;
 }
 
 .topp {
-  padding: 48px 20px 24px;
-  background: linear-gradient(120deg, #1f2a44, #13213f);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 20px 16px;
+  background: #ffffff;
+  border-bottom: 1px solid #ddd;
 }
 
 .topp-innhold {
-  max-width: 1100px;
+  max-width: 1000px;
   margin: 0 auto;
 }
 
 .overtekst {
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
-  font-size: 0.75rem;
-  color: var(--accent-2);
-  margin-bottom: 12px;
+  font-size: 0.85rem;
+  color: #555;
+  margin-bottom: 6px;
 }
 
 h1 {
-  font-family: "Source Serif 4", serif;
-  margin: 0 0 12px;
-  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  margin: 0 0 8px;
+  font-size: 1.8rem;
 }
 
 .ingress {
-  max-width: 680px;
-  color: var(--muted);
-  font-size: 1.05rem;
+  margin: 0;
+  color: #555;
+}
+
+.nav {
+  margin-top: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #2b6cb0;
+  font-size: 0.95rem;
 }
 
 .beholder {
-  max-width: 1100px;
+  max-width: 1000px;
   margin: 0 auto;
-  padding: 28px 20px 60px;
+  padding: 16px;
 }
 
 .kontroller {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 18px;
-  background: var(--bg-soft);
-  padding: 20px;
-  border-radius: 16px;
-  box-shadow: 0 18px 40px var(--shadow);
+  gap: 12px;
+  background: #ffffff;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
 }
 
 .kontroll label {
   display: block;
-  font-size: 0.85rem;
-  color: var(--muted);
-  margin-bottom: 6px;
+  font-size: 0.9rem;
+  margin-bottom: 4px;
 }
 
 .kontroll input,
 .kontroll select {
   width: 100%;
-  padding: 10px 12px;
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: #0f172a;
-  color: var(--text);
+  padding: 8px 10px;
+  border: 1px solid #bbb;
+  border-radius: 4px;
   font-size: 0.95rem;
-}
-
-.kontroll input:focus,
-.kontroll select:focus {
-  outline: 2px solid rgba(255, 183, 3, 0.6);
-  border-color: transparent;
 }
 
 .tips {
   display: block;
-  margin-top: 6px;
-  font-size: 0.75rem;
-  color: var(--muted);
+  margin-top: 4px;
+  font-size: 0.8rem;
+  color: #666;
 }
 
 .tips.advarsel {
-  color: var(--danger);
+  color: #c53030;
+}
+
+.group {
+  display: flex;
+  line-height: 28px;
+  align-items: center;
+  position: relative;
+  max-width: 260px;
+}
+
+.input {
+  width: 100%;
+  height: 40px;
+  line-height: 28px;
+  padding: 0 1rem;
+  padding-left: 3.5rem;
+  border: 1px solid #bbb;
+  border-radius: 6px;
+  outline: none;
+  background-color: #f3f3f4;
+  color: #111;
+}
+
+.input::placeholder {
+  color: #9e9ea7;
+}
+
+.input:focus,
+.input:hover {
+  border-color: #888;
+  background-color: #fff;
+}
+
+.icon {
+  position: absolute;
+  left: 1rem;
+  fill: #9e9ea7;
+  width: 1rem;
+  height: 1rem;
 }
 
 .knapperad {
   display: flex;
-  align-items: flex-end;
-  gap: 12px;
+  gap: 8px;
 }
 
 .knapp {
-  border: 0;
-  padding: 10px 16px;
-  border-radius: 10px;
-  background: #1e293b;
-  color: var(--text);
+  border: 1px solid #bbb;
+  padding: 8px 12px;
+  border-radius: 4px;
+  background: #f5f5f5;
   cursor: pointer;
-  font-weight: 600;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  font-size: 0.95rem;
 }
 
 .knapp.hoved {
-  background: var(--accent);
-  color: #1b1b1b;
-}
-
-.knapp:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.45);
-  background: #2b3b54;
-}
-
-.knapp.hoved:hover {
-  background: #ffd166;
+  background: #2b6cb0;
+  border-color: #2b6cb0;
+  color: #ffffff;
 }
 
 .seksjon {
-  margin-top: 34px;
+  margin-top: 20px;
 }
 
 .seksjon-topp {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 16px;
+  margin-bottom: 10px;
 }
 
 .seksjon-topp h2 {
   margin: 0;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
 }
 
 .merking {
-  background: rgba(34, 211, 238, 0.2);
-  color: var(--accent-2);
-  padding: 4px 12px;
-  border-radius: 999px;
+  background: #eee;
+  color: #555;
+  padding: 2px 8px;
+  border-radius: 12px;
   font-size: 0.85rem;
 }
 
 .rutenett {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 18px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
 }
 
 .kort {
-  background: var(--card);
-  padding: 16px;
-  border-radius: 14px;
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.kort::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.04));
-  opacity: 0;
-  transition: opacity 0.2s ease;
-}
-
-.kort:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 14px 36px rgba(15, 23, 42, 0.5);
-}
-
-.kort:hover::after {
-  opacity: 1;
+  background: #ffffff;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
 }
 
 .status {
   display: inline-block;
-  padding: 4px 10px;
-  border-radius: 999px;
+  padding: 2px 8px;
+  border-radius: 12px;
   font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.03em;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
+  border: 1px solid #ddd;
 }
 
 .status.direkte {
-  background: rgba(34, 211, 238, 0.15);
-  color: var(--accent-2);
+  color: #2b6cb0;
 }
 
 .status.ferdig {
-  background: rgba(52, 211, 153, 0.15);
-  color: var(--success);
+  color: #2f855a;
 }
 
 .status.kommende {
-  background: rgba(249, 115, 22, 0.15);
-  color: var(--warning);
+  color: #dd6b20;
 }
 
 .kort h3 {
-  margin: 6px 0 12px;
-  font-size: 1.05rem;
+  margin: 6px 0 8px;
+  font-size: 1rem;
 }
 
 .detalj {
-  color: var(--muted);
+  color: #555;
   font-size: 0.85rem;
 }
 
 .resultat {
-  font-size: 1.3rem;
-  font-weight: 700;
-  margin: 10px 0;
+  font-weight: bold;
+  margin: 8px 0;
 }
 
 .bunn {
   text-align: center;
-  padding: 24px;
-  color: var(--muted);
+  padding: 16px;
+  color: #666;
   font-size: 0.85rem;
 }
 
 @media (max-width: 720px) {
   .knapperad {
     flex-direction: column;
-    align-items: stretch;
   }
 }
