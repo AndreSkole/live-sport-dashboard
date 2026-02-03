@@ -1,0 +1,253 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Source+Serif+4:wght@400;600&display=swap");
+
+:root {
+  --bg: #0f172a;
+  --bg-soft: #111d36;
+  --card: #121c2f;
+  --accent: #ffb703;
+  --accent-2: #22d3ee;
+  --text: #f8fafc;
+  --muted: #cbd5f5;
+  --success: #34d399;
+  --danger: #fb7185;
+  --warning: #f97316;
+  --shadow: rgba(15, 23, 42, 0.6);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Space Grotesk", system-ui, sans-serif;
+  background: radial-gradient(circle at top, #1b2b52, #0b1020 70%);
+  color: var(--text);
+}
+
+.topp {
+  padding: 48px 20px 24px;
+  background: linear-gradient(120deg, #1f2a44, #13213f);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.topp-innhold {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.overtekst {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.75rem;
+  color: var(--accent-2);
+  margin-bottom: 12px;
+}
+
+h1 {
+  font-family: "Source Serif 4", serif;
+  margin: 0 0 12px;
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+}
+
+.ingress {
+  max-width: 680px;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+.beholder {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 28px 20px 60px;
+}
+
+.kontroller {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+  background: var(--bg-soft);
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 18px 40px var(--shadow);
+}
+
+.kontroll label {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+.kontroll input,
+.kontroll select {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #0f172a;
+  color: var(--text);
+  font-size: 0.95rem;
+}
+
+.kontroll input:focus,
+.kontroll select:focus {
+  outline: 2px solid rgba(255, 183, 3, 0.6);
+  border-color: transparent;
+}
+
+.tips {
+  display: block;
+  margin-top: 6px;
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.tips.advarsel {
+  color: var(--danger);
+}
+
+.knapperad {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+.knapp {
+  border: 0;
+  padding: 10px 16px;
+  border-radius: 10px;
+  background: #1e293b;
+  color: var(--text);
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.knapp.hoved {
+  background: var(--accent);
+  color: #1b1b1b;
+}
+
+.knapp:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.45);
+  background: #2b3b54;
+}
+
+.knapp.hoved:hover {
+  background: #ffd166;
+}
+
+.seksjon {
+  margin-top: 34px;
+}
+
+.seksjon-topp {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.seksjon-topp h2 {
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+.merking {
+  background: rgba(34, 211, 238, 0.2);
+  color: var(--accent-2);
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+}
+
+.rutenett {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 18px;
+}
+
+.kort {
+  background: var(--card);
+  padding: 16px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.kort::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.04));
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.kort:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 36px rgba(15, 23, 42, 0.5);
+}
+
+.kort:hover::after {
+  opacity: 1;
+}
+
+.status {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  margin-bottom: 10px;
+}
+
+.status.direkte {
+  background: rgba(34, 211, 238, 0.15);
+  color: var(--accent-2);
+}
+
+.status.ferdig {
+  background: rgba(52, 211, 153, 0.15);
+  color: var(--success);
+}
+
+.status.kommende {
+  background: rgba(249, 115, 22, 0.15);
+  color: var(--warning);
+}
+
+.kort h3 {
+  margin: 6px 0 12px;
+  font-size: 1.05rem;
+}
+
+.detalj {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.resultat {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 10px 0;
+}
+
+.bunn {
+  text-align: center;
+  padding: 24px;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+@media (max-width: 720px) {
+  .knapperad {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

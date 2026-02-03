@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="no">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Live Sports Dashboard</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topp">
+      <div class="topp-innhold">
+        <p class="overtekst">Skoleprosjekt</p>
+        <h1>Live Sports Dashboard</h1>
+        <p class="ingress">
+          Følg kamper og løp i sanntid. Velg sport, søk, og filtrer dagens
+          arrangementer med realistiske placeholder-data.
+        </p>
+      </div>
+    </header>
+
+    <main class="beholder">
+      <section class="kontroller">
+        <div class="kontroll">
+          <label for="sportVelger">Velg sport</label>
+          <select id="sportVelger">
+            <option value="fotball">Fotball</option>
+            <option value="f1">Formula 1</option>
+          </select>
+        </div>
+
+        <div class="kontroll">
+          <label for="sokInput">Søk</label>
+          <input
+            id="sokInput"
+            type="text"
+            placeholder="Lag, fører eller løp..."
+            autocomplete="off"
+          />
+          <small id="sokHjelp" class="tips">
+            Søk må være minst 2 tegn.
+          </small>
+        </div>
+
+        <div class="kontroll knapperad">
+          <button id="idagKnapp" class="knapp hoved">Dagens kamper</button>
+          <button id="alleKnapp" class="knapp">Vis alle</button>
+        </div>
+      </section>
+
+      <section class="seksjon">
+        <div class="seksjon-topp">
+          <h2 id="idagTittel">Dagens kamper</h2>
+          <span class="merking" id="idagAntall">0</span>
+        </div>
+        <div id="idagRutenett" class="rutenett"></div>
+      </section>
+
+      <section class="seksjon">
+        <div class="seksjon-topp">
+          <h2 id="andreTittel">Tidligere og kommende</h2>
+          <span class="merking" id="andreAntall">0</span>
+        </div>
+        <div id="andreRutenett" class="rutenett"></div>
+      </section>
+    </main>
+
+    <footer class="bunn">
+      <p>Frontend-demo uten backend. Dataene er realistiske placeholders.</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
