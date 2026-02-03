@@ -112,6 +112,11 @@ h1 {
   color: #111;
 }
 
+.kontroll input.input {
+  padding: 0 1rem;
+  padding-left: 3.5rem;
+}
+
 .input::placeholder {
   color: #9e9ea7;
 }
