@@ -37,25 +37,25 @@ function tidTekst(datoVerdi) {
 
 function fotballKort(kamp) {
   return `
-    <article class="kort">
-      <span class="status ${statusKlasse(kamp.status)}">${kamp.status}</span>
+    <div class="kort">
+      <div class="status ${statusKlasse(kamp.status)}">${kamp.status}</div>
       <h3>${kamp.hjemme} vs ${kamp.borte}</h3>
       <div class="resultat">${kamp.resultat}</div>
       <div class="detalj">Start: ${tidTekst(kamp.startTid)}</div>
-    </article>
+    </div>
   `;
 }
 
 function f1Kort(lop) {
   return `
-    <article class="kort">
-      <span class="status ${statusKlasse(lop.status)}">${lop.status}</span>
+    <div class="kort">
+      <div class="status ${statusKlasse(lop.status)}">${lop.status}</div>
       <h3>${lop.lop}</h3>
       <div class="resultat">${lop.forer} · ${lop.lag}</div>
       <div class="detalj">Posisjon: ${lop.posisjon}</div>
       <div class="detalj">Tid: ${lop.tid}</div>
       <div class="detalj">Start: ${tidTekst(lop.startTid)}</div>
-    </article>
+    </div>
   `;
 }
 

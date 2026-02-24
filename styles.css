@@ -37,16 +37,37 @@ h1 {
 }
 
 .nav {
-  margin-top: 12px;
+  margin-top: 18px;
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 8px;
+  padding: 8px;
+  background: rgba(2, 23, 43, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  width: fit-content;
+  backdrop-filter: blur(4px);
 }
 
 .nav a {
   text-decoration: none;
-  color: #2226e6;
+  color: #e8f3ff;
   font-size: 0.95rem;
+  font-weight: 600;
+  padding: 8px 14px;
+  border-radius: 999px;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.nav a:hover {
+  background: rgba(255, 255, 255, 0.16);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.nav a:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
 }
 
 .beholder {
@@ -236,6 +257,17 @@ h1 {
 }
 
 @media (max-width: 720px) {
+  .nav {
+    width: 100%;
+    border-radius: 16px;
+    justify-content: center;
+  }
+
+  .nav a {
+    flex: 1 1 calc(50% - 8px);
+    text-align: center;
+  }
+
   .knapperad {
     flex-direction: column;
   }

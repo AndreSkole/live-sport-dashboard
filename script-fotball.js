@@ -37,12 +37,12 @@ function tidTekst(datoVerdi) {
 
 function fotballKort(kamp) {
   return `
-    <article class="kort">
-      <span class="status ${statusKlasse(kamp.status)}">${kamp.status}</span>
+    <div class="kort">
+      <div class="status ${statusKlasse(kamp.status)}">${kamp.status}</div>
       <h3>${kamp.hjemme} vs ${kamp.borte}</h3>
       <div class="resultat">${kamp.resultat}</div>
       <div class="detalj">Start: ${tidTekst(kamp.startTid)}</div>
-    </article>
+    </div>
   `;
 }
 
@@ -56,14 +56,18 @@ function tegn() {
     sokHjelp.classList.remove("advarsel");
   }
 
-  const filtrert = fotballKamper.filter((kamp) => {
+  const filtrert = fotballKamper.filter(function (kamp) {
     if (sok.length < 2) return true;
     const tekst = `${kamp.hjemme} ${kamp.borte}`;
     return tekst.toLowerCase().includes(sok);
   });
 
-  const idagListe = filtrert.filter((kamp) => sammeDag(new Date(kamp.startTid), idagDato));
-  const andreListe = filtrert.filter((kamp) => !sammeDag(new Date(kamp.startTid), idagDato));
+  const idagListe = filtrert.filter(function (kamp) {
+    return sammeDag(new Date(kamp.startTid), idagDato);
+  });
+  const andreListe = filtrert.filter(function (kamp) {
+    return !sammeDag(new Date(kamp.startTid), idagDato);
+  });
 
   idagRutenett.innerHTML = idagListe.map(fotballKort).join("");
   andreRutenett.innerHTML = andreListe.map(fotballKort).join("");
@@ -80,12 +84,12 @@ function tegn() {
 
 sokInput.addEventListener("input", tegn);
 
-idagKnapp.addEventListener("click", () => {
+idagKnapp.addEventListener("click", function () {
   visBareIDag = true;
   tegn();
 });
 
-alleKnapp.addEventListener("click", () => {
+alleKnapp.addEventListener("click", function () {
   visBareIDag = false;
   tegn();
 });
