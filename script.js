@@ -17,6 +17,7 @@ const f1Lop = [
 
 //Hente elementer fra html
 const sportVelger = document.querySelector("#sportVelger");
+const limitVelger = document.querySelector("#limitVelger");
 const sokInput = document.querySelector("#sokInput");
 const sokHjelp = document.querySelector("#sokHjelp");
 const idagKnapp = document.querySelector("#idagKnapp");
@@ -29,6 +30,26 @@ const idagAntall = document.querySelector("#idagAntall");
 const andreAntall = document.querySelector("#andreAntall");
 
 let visBareIDag = false;
+const LIMIT_STORAGE_KEY = "liveSportsDashboard.limit";
+
+function lesLimit() {
+  const valgt = Number(limitVelger?.value || 20);
+  if (!Number.isFinite(valgt)) return 20;
+  if (valgt !== 10 && valgt !== 20 && valgt !== 50) return 20;
+  return valgt;
+}
+
+function antallTekst(vist, totalt) {
+  if (vist < totalt) return `${vist}/${totalt}`;
+  return String(totalt);
+}
+
+if (limitVelger) {
+  const lagret = Number(localStorage.getItem(LIMIT_STORAGE_KEY));
+  if (Number.isFinite(lagret) && (lagret === 10 || lagret === 20 || lagret === 50)) {
+    limitVelger.value = String(lagret);
+  }
+}
 
 // Små hjelpefunksjoner
 function sammeDag(a, b) {
@@ -75,6 +96,7 @@ function tegn() {
   const sport = sportVelger.value;
   const sok = sokInput.value.trim().toLowerCase();
   const idagDato = new Date();
+  const limit = lesLimit();
 
   // Validering søk må være minst 2 tegn hvis det brukes
   if (sok.length === 1) {
@@ -97,27 +119,29 @@ function tegn() {
 
   const idagListe = filtrert.filter((element) => sammeDag(new Date(element.startTid), idagDato));
   const andreListe = filtrert.filter((element) => !sammeDag(new Date(element.startTid), idagDato));
+  const idagVis = idagListe.slice(0, limit);
+  const andreVis = andreListe.slice(0, limit);
 
   if (sport === "fotball") {
     idagTittel.textContent = "Dagens kamper";
     andreTittel.textContent = "Tidligere og kommende kamper";
-    idagRutenett.innerHTML = idagListe.map(fotballKort).join("");
-    andreRutenett.innerHTML = andreListe.map(fotballKort).join("");
+    idagRutenett.innerHTML = idagVis.map(fotballKort).join("");
+    andreRutenett.innerHTML = andreVis.map(fotballKort).join("");
   } else {
     idagTittel.textContent = "Dagens løp";
     andreTittel.textContent = "Tidligere og kommende løp";
-    idagRutenett.innerHTML = idagListe.map(f1Kort).join("");
-    andreRutenett.innerHTML = andreListe.map(f1Kort).join("");
+    idagRutenett.innerHTML = idagVis.map(f1Kort).join("");
+    andreRutenett.innerHTML = andreVis.map(f1Kort).join("");
   }
 
   if (visBareIDag) {
     andreRutenett.innerHTML = "";
     andreAntall.textContent = "0";
   } else {
-    andreAntall.textContent = andreListe.length;
+    andreAntall.textContent = antallTekst(andreVis.length, andreListe.length);
   }
 
-  idagAntall.textContent = idagListe.length;
+  idagAntall.textContent = antallTekst(idagVis.length, idagListe.length);
 }
 
 // Enkle event listeners
@@ -125,6 +149,13 @@ sportVelger.addEventListener("change", () => {
   visBareIDag = false;
   tegn();
 });
+
+if (limitVelger) {
+  limitVelger.addEventListener("change", () => {
+    localStorage.setItem(LIMIT_STORAGE_KEY, String(lesLimit()));
+    tegn();
+  });
+}
 
 sokInput.addEventListener("input", tegn);
 

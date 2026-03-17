@@ -1,4 +1,4 @@
-// Enkelt oppsett av data (placeholder)
+
 const f1Lop = [
   { nummer: 101, lop: "Bahrain Grand Prix", forer: "Oscar Piastri", lag: "McLaren", posisjon: "P1", tid: "1:32:18.552", status: "Ferdig", startTid: "2026-02-01T17:00:00" },
   { nummer: 102, lop: "Saudi Arabian Grand Prix", forer: "Max Verstappen", lag: "Red Bull Racing", posisjon: "P2", tid: "+4.210s", status: "Ferdig", startTid: "2026-02-02T19:00:00" },

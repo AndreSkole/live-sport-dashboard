@@ -7,24 +7,24 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <header class="topp">
+    <div class="topp">
       <div class="topp-innhold">
         <p class="overtekst">Formula 1</p>
         <h1>Kun Formula 1</h1>
         <p class="ingress">
           Søk og filtrer F1-løp. Viser dagens løp og andre løp.
         </p>
-        <nav class="nav">
+        <div class="nav">
           <a href="index.html">Hjem</a>
           <a href="fotball.html">Fotball</a>
           <a href="f1.html">Formula 1</a>
           <a href="sok.html">Søk</a>
-        </nav>
+        </div>
       </div>
-    </header>
+    </div>
 
-    <main class="beholder">
-      <section class="kontroller">
+    <div class="beholder">
+      <div class="kontroller">
         <div class="kontroll">
           <label for="sokInput">Søk</label>
           <input
@@ -42,28 +42,28 @@
           <button id="idagKnapp" class="knapp hoved">Dagens løp</button>
           <button id="alleKnapp" class="knapp">Vis alle</button>
         </div>
-      </section>
+      </div>
 
-      <section class="seksjon">
+      <div class="seksjon">
         <div class="seksjon-topp">
           <h2 id="idagTittel">Dagens løp</h2>
           <div class="merking" id="idagAntall">0</div>
         </div>
         <div id="idagRutenett" class="rutenett"></div>
-      </section>
+      </div>
 
-      <section class="seksjon">
+      <div class="seksjon">
         <div class="seksjon-topp">
           <h2 id="andreTittel">Tidligere og kommende løp</h2>
           <div class="merking" id="andreAntall">0</div>
         </div>
         <div id="andreRutenett" class="rutenett"></div>
-      </section>
-    </main>
+      </div>
+    </div>
 
-    <footer class="bunn">
+    <div class="bunn">
       <p>Frontend-demo uten backend. Dataene er realistiske placeholders.</p>
-    </footer>
+    </div>
 
     <script src="script-f1.js"></script>
   </body>
